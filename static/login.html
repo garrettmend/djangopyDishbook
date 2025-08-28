@@ -8,12 +8,23 @@
 
   <header>
     <h1><a href="index.html">Dishbook</a></h1>
+      <nav>
+        <a href="login.html">Sign in</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+        <form role="search" action="search.html" method="get">
+          <label for="q"></label>
+          <input name="q" type="search" placeholder="Search recipes…" />
+          <button type="submit">Search</button>
+        </form>
+      </nav>
   </header>
 
   <main>
-    <h2>Log in</h2>
+    <h2>Sign in to Dishbook</h2>
 
-    <form action="/login" method="post">
+    <form action="index.html" method="post">
       <!-- Add your CSRF token field here if needed -->
 
 

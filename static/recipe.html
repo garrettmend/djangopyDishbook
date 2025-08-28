@@ -4,58 +4,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Weeknight Lemon Chicken Pasta | Dishbook</title>
 
-  <!-- Site Header -->
-  <header>
-      <a>Dishbook</a>
-        <img/>
-          <span>Jane Doe</span>
-          <a>View profile</a>
+  <!-- Site Header / Nav -->
+  <header role="banner">
+
+      <h1><a href="index.html">Dishbook</a></h1>
+      <nav>
+                  <span>Jane Doe</span>
+          <a href="login.html">View Profile</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="recipe.html">My Cookbook</a></li>
+        </ul>
+        <form role="search" action="search.html" method="get">
+          <label for="q"></label>
+          <input name="q" type="search" placeholder="Search recipes…" />
+          <button type="submit">Search</button>
+        </form>
+      </nav>
+
   </header>
-
-  <!-- Primary Navigation -->
-  <nav>
-
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/cookbook">My Cookbook</a></li>
-      </ul>
-      <form>
-        <input name="q" type="search" placeholder="Search recipes…" />
-        <button type="submit">Search</button>
-      </form>
-
-  </nav>
 
   <!-- Main Content: Recipe Page -->
   <main tabindex="-1">
     <article>
 
       <header>
-        <h1>Weeknight Lemon Chicken Pasta</h1>
-        <span>By <a href="/profile/jane-doe" rel="author">Jane Doe</a></span>
+        <h2>Chicken Adobe</h2>
+        <div>By <a href="login.html" rel="author">Jane Doe</a></div>
+        <div>Featured in July 2025</div>
         <ul>
-          <li><a href="/tags/quick">quick</a></li>
-          <li><a href="/tags/chicken">chicken</a></li>
-          <li><a href="/tags/pasta">pasta</a></li>
+          <li><a href="recipe.html">asian</a></li>
+          <li><a href="recipe.html">comfort</a></li>
+
         </ul>
       </header>
 
       <section>
         <figure>
-          <img src="/assets/recipes/lemon-chicken-pasta.jpg" alt="Bowl of lemon chicken pasta with parsley" width="800" height="600" />
-          <figcaption itemprop="caption">Bright, tangy, and done in 30 minutes.</figcaption>
+          <img src="/static/chicken-adobo.png" alt="Bowl of lemon chicken pasta with parsley" width="800" height="600" />
+          <!-- <figcaption itemprop="caption">Bright, tangy, and done in 30 minutes.</figcaption> -->
           <meta itemprop="url" content="/assets/recipes/lemon-chicken-pasta.jpg" />
         </figure>
         <div>
           <ul>
-            <li><strong>Prep:</strong> <time datetime="PT10M">10 min</time></li>
-            <li><strong>Cook:</strong> <time datetime="PT20M">20 min</time></li>
-            <li><strong>Total:</strong> <time datetime="PT30M">30 min</time></li>
-            <li><strong>Yield:</strong> <span>4 servings</span></li>
-          </ul>
+            <dl>
+              <dt>Prep:</dt>
+              <dd>20 min</dd>
+              <dt>Cook:</dt>
+              <dd>40 min</dd>
+              <dt>Yield:</dt>
+              <dd>4 servings</dd>
+            </dl>
         </div>
       </section>
-
+      <section>
+        <figcaption itemprop="caption">Bright, tangy, and done in 30 minutes.</figcaption>
+        </section>
       <!-- Recipe content: 1/3 ingredients, 2/3 steps (stack on mobile via CSS) -->
       <section>
 
@@ -74,7 +78,7 @@
             <li>1/4 cup chopped parsley</li>
           </ul>
         </aside>
-
+      </section>
         <section>
           <h3>Steps</h3>
           <ol>
@@ -95,7 +99,6 @@
             </li>
           </ol>
         </section>
-      </section>
 
     </article>
   </main>

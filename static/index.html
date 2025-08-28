@@ -8,21 +8,19 @@
   <!-- Site Header / Nav -->
   <header role="banner">
 
-      <a href="/">Dishbook</a>
+      <h1><a href="index.html">Dishbook</a></h1>
       <nav>
+                  <span>Jane Doe</span>
+          <a href="login.html">View Profile</a>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/cookbook">My Cookbook</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="recipe.html">My Cookbook</a></li>
         </ul>
-        <form role="search" action="/search" method="get">
-          <label for="q">Search recipes</label>
+        <form role="search" action="search.html" method="get">
+          <label for="q"></label>
           <input name="q" type="search" placeholder="Search recipes…" />
           <button type="submit">Search</button>
         </form>
-        <ul>
-          <li><a href="login.html">Sign in</a></li>
-          <li><a href="/signup">Create account</a></li>
-        </ul>
       </nav>
 
   </header>
@@ -31,7 +29,7 @@
     <!-- Hero / Welcome -->
     <section>
 
-        <h1>Welcome to Dishbook</h1>
+        <h2>Welcome to Dishbook</h2>
         <p>Dishbook is a cozy place to save family
         recipes, discover new favorites, and swap variations that feel
         like home. Start with a trusted dish, then record the
@@ -41,7 +39,7 @@
         with photos, tags, and clear steps. Build a cookbook that
         grows with you, one small improvement at a time.</p>
         <p>
-          <a href="/signup">Create an account</a>
+          <a href="login.html">Sign in</a>
           <a href="recipe.html">Browse recipes</a>
         </p>
 
@@ -57,16 +55,16 @@
       <ul>
         <li>
           <article>
-            <a>
+            <a href="recipe.html">
               <figure>
-                <img src="/assets/recipes/funeral-potatoes.jpg" alt="Golden baked funeral potatoes in a casserole dish" width="640" height="480" loading="lazy" />
+                <img src="/static/funeral-potatoes.png" alt="Golden baked funeral potatoes in a casserole dish" width="640" height="480" loading="lazy" />
               </figure>
 
                 <h3>Funeral Potatoes with Parmesan</h3>
                 <ul>
-                  <li><a href="/s?q=tag%3Acomfort">comfort</a></li>
-                  <li><a href="/s?q=tag%3Aholiday">holiday</a></li>
-                  <li><a href="/s?q=tag%3Autah">utah</a></li>
+                  <li><a href="recipe.html">comfort</a></li>
+                  <li><a href="recipe.html">holiday</a></li>
+                  <li><a href="recipe.html">utah</a></li>
                 </ul>
 
             </a>
@@ -75,15 +73,14 @@
 
         <li>
           <article>
-            <a href="/recipe/lemon-chicken-pasta">
+            <a href="recipe.html">
               <figure>
                 <img src="/static/chicken-adobo.png" alt="Bowl of lemon chicken pasta with parsley" width="640" height="480" loading="lazy" />
               </figure>
-                <h3>Weeknight Lemon Chicken Pasta</h3>
+                <h3>Chicken Adobe</h3>
                 <ul>
-                  <li><a href="/s?q=tag%3Aquick">quick</a></li>
-                  <li><a href="/s?q=tag%3Achicken">chicken</a></li>
-                  <li><a href="/s?q=tag%3Apasta">pasta</a></li>
+                  <li><a href="recipe.html">asian</a></li>
+                  <li><a href="recipe.html">comfort</a></li>
                 </ul>
 
             </a>
@@ -92,15 +89,15 @@
 
         <li>
           <article>
-            <a href="/recipe/chili">
+            <a href="recipe.html">
               <figure>
-                <img src="/assets/recipes/chili.jpg" alt="Hearty bowl of beef and bean chili topped with sour cream" width="640" height="480" loading="lazy" />
+                <img src="/static/carne-asada.png" alt="Hearty bowl of beef and bean chili topped with sour cream" width="640" height="480" loading="lazy" />
               </figure>
-                <h3>Slow-Simmered Chili</h3>
+                <h3>Carne Asada Tacos</h3>
                 <ul>
-                  <li><a href="/s?q=tag%3Aone-pot">one-pot</a></li>
-                  <li><a href="/s?q=tag%3Afreezer">freezer</a></li>
-                  <li><a href="/s?q=tag%3Acrowd">crowd</a></li>
+                  <li><a href="recipe.html">street-food</a></li>
+                  <li><a href="recipe.html">spicy</a></li>
+                  <li><a href="recipe.html">latino</a></li>
                 </ul>
 
             </a>

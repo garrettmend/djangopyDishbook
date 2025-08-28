@@ -6,22 +6,21 @@
   <link rel="stylesheet" href="/assets/styles.css" />
 
   <!-- Site Header / Nav -->
-  <header>
-      <a>Dishbook</a>
+  <header role="banner">
+
+      <h1><a href="index.html">Dishbook</a></h1>
       <nav>
+        <span>Jane Doe</span>
+        <a href="login.html">View Profile</a>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/cookbook">My Cookbook</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="recipe.html">My Cookbook</a></li>
         </ul>
-        <form>
-          <label>Search recipes</label>
-          <input name="q" placeholder="Search recipes…" />
-          <button>Search</button>
+        <form role="search" action="search.html" method="get">
+          <label for="q"></label>
+          <input name="q" type="search" placeholder="Search recipes…" />
+          <button type="submit">Search</button>
         </form>
-        <ul>
-          <li><a href="/login">Sign in</a></li>
-          <li><a href="/signup">Create account</a></li>
-        </ul>
       </nav>
 
   </header>
@@ -30,10 +29,8 @@
     <!-- Search controls -->
     <section>
 
-        <h1>Search recipes</h1>
+        <h2>Search recipes</h2>
         <form>
-
-            <label>Search query</label>
             <input name="q" required placeholder="Try: chicken, cinnamon rolls, #quick, time:&lt;30" />
             <button>Search</button>
 
@@ -49,15 +46,12 @@
         <li>
           <article>
             <a>
-              <figure>
-                <img src="/assets/recipes/lemon-chicken-pasta.jpg" alt="Bowl of lemon chicken pasta with parsley" width="640" height="480" loading="lazy" />
-              </figure>
 
-                <h3>Weeknight Lemon Chicken Pasta</h3>
+
+                <h3>Vietanamese Pho</h3>
                 <ul>
-                  <li><a href="/s?q=tag%3Aquick">quick</a></li>
-                  <li><a href="/s?q=tag%3Achicken">chicken</a></li>
-                  <li><a href="/s?q=tag%3Apasta">pasta</a></li>
+                  <li><a href="recipe.html">comfort</a></li>
+                  <li><a href="recipe.html">asian</a></li>
                 </ul>
 
             </a>
@@ -68,14 +62,13 @@
           <article>
             <a>
               <figure>
-                <img src="/assets/recipes/chicken-broccoli-casserole.jpg" alt="Cheesy chicken broccoli casserole in a baking dish" width="640" height="480" loading="lazy" />
+                <img src="/static/chicken-adobo.png" alt="Cheesy chicken broccoli casserole in a baking dish" width="640" height="480" loading="lazy" />
               </figure>
               <div>
-                <h3>Chicken Broccoli Casserole</h3>
+                <h3>Chicken Adobe</h3>
                 <ul>
-                  <li><a href="/s?q=tag%3Acomfort">comfort</a></li>
-                  <li><a href="/s?q=tag%3Acrowd">crowd</a></li>
-                  <li><a href="/s?q=tag%3Afreezer">freezer</a></li>
+                  <li><a href="recipe.html">comfort</a></li>
+                  <li><a href="recipe.html">asian</a></li>
                 </ul>
               </div>
             </a>
@@ -85,20 +78,31 @@
         <li>
           <article>
             <a>
-              <figure>
-                <img src="/assets/recipes/teriyaki-chicken-bowl.jpg" alt="Teriyaki chicken bowl with rice and vegetables" width="640" height="480" loading="lazy" />
-              </figure>
 
-                <h3>Teriyaki Chicken Bowl</h3>
+                <h3>Miso Soup</h3>
                 <ul>
-                  <li><a href="/s?q=tag%3Aquick">quick</a></li>
-                  <li><a href="/s?q=tag%3Atakeout-at-home">takeout-at-home</a></li>
-                  <li><a href="/s?q=tag%3Alunch">lunch</a></li>
+                  <li><a href="recipe.html">quick</a></li>
+                  <li><a href="recipe.html">asian</a></li>
                 </ul>
 
             </a>
           </article>
         </li>
+
+                <li>
+          <article>
+            <a>
+              <div>
+                <h3>Spicy Miso Soup with Enoki Mushrooms</h3>
+                <ul>
+                  <li><a href="recipe.html">spicy</a></li>
+                  <li><a href="recipe.html">asian</a></li>
+                </ul>
+              </div>
+            </a>
+          </article>
+        </li>
+
       </ul>
     </section>
   </main>
