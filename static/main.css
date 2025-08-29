@@ -1,0 +1,36 @@
+html {
+    font-size: 18px;
+    font-family: "Nunito", "Arial", sans-serif;
+}
+
+h1 {
+    font-size: 180%;
+    font-family: "Playwrite US Trad", "Arial", cursive;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 125%;
+    font-family: "Playwrite US Trad", "Arial", cursive;
+}
+
+.login {
+    font-size: 125%;
+}
+
+.description,
+.steps,
+.ingredients {
+    line-height: 1.25;
+}
+
+.info {
+    font-weight: 600;
+}
+
+b {
+    font-weight: bold;
+}

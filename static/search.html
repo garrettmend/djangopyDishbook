@@ -1,108 +1,118 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap"
+  rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+
 <!doctype html>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dishbook — Search</title>
-  <link rel="stylesheet" href="/assets/styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dishbook — Search</title>
+<link rel="stylesheet" href="/assets/styles.css" />
 
-  <!-- Site Header / Nav -->
-  <header role="banner">
+<!-- Site Header / Nav -->
+<header role="banner">
 
-      <h1><a href="index.html">Dishbook</a></h1>
-      <nav>
-        <span>Jane Doe</span>
-        <a href="login.html">View Profile</a>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="recipe.html">My Cookbook</a></li>
-        </ul>
-        <form role="search" action="search.html" method="get">
-          <label for="q"></label>
-          <input name="q" type="search" placeholder="Search recipes…" />
-          <button type="submit">Search</button>
-        </form>
-      </nav>
+  <h1><a href="index.html">Dishbook</a></h1>
+  <nav>
+    <span>Jane Doe</span>
+    <a href="profile.html">View Profile</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="recipe.html">My Cookbook</a></li>
+    </ul>
+    <form role="search" action="search.html" method="get">
+      <label for="q"></label>
+      <input name="q" type="search" placeholder="Search recipes…" />
+      <button type="submit">Search</button>
+    </form>
+  </nav>
 
-  </header>
+</header>
 
-  <main>
-    <!-- Search controls -->
-    <section>
+<main>
+  <!-- Search controls -->
+  <section>
 
-        <h2>Search recipes</h2>
-        <form>
-            <input name="q" required placeholder="Try: chicken, cinnamon rolls, #quick, time:&lt;30" />
-            <button>Search</button>
+    <b>
+      <h2>Search recipes</h2>
+    </b>
+    <form>
+      <input name="q" required placeholder="Try: chicken, cinnamon rolls, #quick, time:&lt;30" />
+      <button>Search</button>
 
-        </form>
+    </form>
 
-    </section>
+  </section>
 
-    <!-- Results summary + count -->
-    <section>
+  <!-- Results summary + count -->
+  <section>
 
-      <!-- Cards grid (3-up on desktop) -->
-      <ul>
-        <li>
-          <article>
-            <a>
+    <!-- Cards grid (3-up on desktop) -->
+    <ul>
+      <li>
+        <article>
+          <a>
 
 
-                <h3>Vietanamese Pho</h3>
-                <ul>
-                  <li><a href="recipe.html">comfort</a></li>
-                  <li><a href="recipe.html">asian</a></li>
-                </ul>
+            <h3>Vietanamese Pho</h3>
+            <ul>
+              <li><a href="recipe.html">comfort</a></li>
+              <li><a href="recipe.html">asian</a></li>
+            </ul>
 
-            </a>
-          </article>
-        </li>
+          </a>
+        </article>
+      </li>
 
-        <li>
-          <article>
-            <a>
-              <figure>
-                <img src="/static/chicken-adobo.png" alt="Cheesy chicken broccoli casserole in a baking dish" width="640" height="480" loading="lazy" />
-              </figure>
-              <div>
-                <h3>Chicken Adobe</h3>
-                <ul>
-                  <li><a href="recipe.html">comfort</a></li>
-                  <li><a href="recipe.html">asian</a></li>
-                </ul>
-              </div>
-            </a>
-          </article>
-        </li>
+      <li>
+        <article>
+          <a>
+            <figure>
+              <img src="/static/chicken-adobo.png" alt="Cheesy chicken broccoli casserole in a baking dish" width="640"
+                height="480" loading="lazy" />
+            </figure>
+            <div>
+              <h3>Chicken Adobe</h3>
+              <ul>
+                <li><a href="recipe.html">comfort</a></li>
+                <li><a href="recipe.html">asian</a></li>
+              </ul>
+            </div>
+          </a>
+        </article>
+      </li>
 
-        <li>
-          <article>
-            <a>
+      <li>
+        <article>
+          <a>
 
-                <h3>Miso Soup</h3>
-                <ul>
-                  <li><a href="recipe.html">quick</a></li>
-                  <li><a href="recipe.html">asian</a></li>
-                </ul>
+            <h3>Miso Soup</h3>
+            <ul>
+              <li><a href="recipe.html">quick</a></li>
+              <li><a href="recipe.html">asian</a></li>
+            </ul>
 
-            </a>
-          </article>
-        </li>
+          </a>
+        </article>
+      </li>
 
-                <li>
-          <article>
-            <a>
-              <div>
-                <h3>Spicy Miso Soup with Enoki Mushrooms</h3>
-                <ul>
-                  <li><a href="recipe.html">spicy</a></li>
-                  <li><a href="recipe.html">asian</a></li>
-                </ul>
-              </div>
-            </a>
-          </article>
-        </li>
+      <li>
+        <article>
+          <a>
+            <div>
+              <h3>Spicy Miso Soup with Enoki Mushrooms</h3>
+              <ul>
+                <li><a href="recipe.html">spicy</a></li>
+                <li><a href="recipe.html">asian</a></li>
+              </ul>
+            </div>
+          </a>
+        </article>
+      </li>
 
-      </ul>
-    </section>
-  </main>
+    </ul>
+  </section>
+</main>

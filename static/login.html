@@ -1,45 +1,53 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap"
+  rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dishbook — Log In</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dishbook — Log In</title>
 
 
-  <header>
-    <h1><a href="index.html">Dishbook</a></h1>
-      <nav>
-        <a href="login.html">Sign in</a>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-        </ul>
-        <form role="search" action="search.html" method="get">
-          <label for="q"></label>
-          <input name="q" type="search" placeholder="Search recipes…" />
-          <button type="submit">Search</button>
-        </form>
-      </nav>
-  </header>
-
-  <main>
-    <h2>Sign in to Dishbook</h2>
-
-    <form action="index.html" method="post">
-      <!-- Add your CSRF token field here if needed -->
-
-
-        <label for="email">Email</label>
-        <input name="email" type="email" autocomplete="username" required />
-
-
-
-        <label for="password">Password</label>
-        <input name="password" type="password" autocomplete="current-password" required />
-
-
-        <button type="submit">Log in</button>
-
-
+<header>
+  <h1><a href="index.html">Dishbook</a></h1>
+  <nav>
+    <a href="login.html">Sign in</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+    <form role="search" action="search.html" method="get">
+      <label for="q"></label>
+      <input name="q" type="search" placeholder="Search recipes…" />
+      <button type="submit">Search</button>
     </form>
+  </nav>
+</header>
+
+<main class="login">
+  <b>
+    <h2>Sign in to Dishbook</h2>
+  </b>
+
+  <form action="index.html" method="post">
+    <!-- Add your CSRF token field here if needed -->
 
 
+    <label for="email">Email</label>
+    <input name="email" type="email" autocomplete="username" required />
+
+
+
+    <label for="password">Password</label>
+    <input name="password" type="password" autocomplete="current-password" required />
+
+
+    <button type="submit">Log in</button>
+
+
+  </form>
+</main>

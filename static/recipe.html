@@ -1,105 +1,115 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap"
+  rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+
 <!doctype html>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Weeknight Lemon Chicken Pasta | Dishbook</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Weeknight Lemon Chicken Pasta | Dishbook</title>
 
-  <!-- Site Header / Nav -->
-  <header role="banner">
+<!-- Site Header / Nav -->
+<header role="banner">
 
-      <h1><a href="index.html">Dishbook</a></h1>
-      <nav>
-                  <span>Jane Doe</span>
-          <a href="login.html">View Profile</a>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="recipe.html">My Cookbook</a></li>
-        </ul>
-        <form role="search" action="search.html" method="get">
-          <label for="q"></label>
-          <input name="q" type="search" placeholder="Search recipes…" />
-          <button type="submit">Search</button>
-        </form>
-      </nav>
+  <h1><a href="index.html">Dishbook</a></h1>
+  <nav>
+    <span>Jane Doe</span>
+    <a href="profile.html">View Profile</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="recipe.html">My Cookbook</a></li>
+    </ul>
+    <form role="search" action="search.html" method="get">
+      <label for="q"></label>
+      <input name="q" type="search" placeholder="Search recipes…" />
+      <button type="submit">Search</button>
+    </form>
+  </nav>
 
-  </header>
+</header>
 
-  <!-- Main Content: Recipe Page -->
-  <main tabindex="-1">
-    <article>
+<!-- Main Content: Recipe Page -->
+<main tabindex="-1">
+  <article>
 
-      <header>
+    <header>
+      <b>
         <h2>Chicken Adobe</h2>
-        <div>By <a href="login.html" rel="author">Jane Doe</a></div>
-        <div>Featured in July 2025</div>
+      </b>
+      <div>By <a href="login.html" rel="author">Jane Doe</a></div>
+      <div>Featured in July 2025</div>
+      <ul>
+        <li><a href="recipe.html">asian</a></li>
+        <li><a href="recipe.html">comfort</a></li>
+
+      </ul>
+    </header>
+
+    <section>
+      <figure>
+        <img src="/static/chicken-adobo.png" alt="Bowl of lemon chicken pasta with parsley" width="800" height="600" />
+        <!-- <figcaption itemprop="caption">Bright, tangy, and done in 30 minutes.</figcaption> -->
+        <meta itemprop="url" content="/assets/recipes/lemon-chicken-pasta.jpg" />
+      </figure>
+      <div>
         <ul>
-          <li><a href="recipe.html">asian</a></li>
-          <li><a href="recipe.html">comfort</a></li>
+          <dl class="info">
+            <dt>Prep:</dt>
+            <dd>20 min</dd>
+            <dt>Cook:</dt>
+            <dd>40 min</dd>
+            <dt>Yield:</dt>
+            <dd>4 servings</dd>
+          </dl>
+      </div>
+    </section>
+    <section>
+      <figcaption class="description" itemprop="caption">Bright, tangy, and done in 30 minutes.</figcaption>
+    </section>
+    <!-- Recipe content: 1/3 ingredients, 2/3 steps (stack on mobile via CSS) -->
+    <section>
 
+      <aside class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>12 oz pasta (spaghetti or linguine)</li>
+          <li>2 chicken breasts, thinly sliced</li>
+          <li>2 tbsp olive oil</li>
+          <li>3 cloves garlic, minced</li>
+          <li>1 lemon (zest + 3 tbsp juice)</li>
+          <li>1/2 cup grated Parmesan</li>
+          <li>1/2 cup pasta water (reserved)</li>
+          <li>Salt & pepper</li>
+          <li>2 tbsp butter</li>
+          <li>1/4 cup chopped parsley</li>
         </ul>
-      </header>
+      </aside>
+    </section>
+    <section class="steps">
+      <h3>Steps</h3>
+      <ol>
+        <li>
+          <span>Cook pasta in salted water until al dente. Reserve 1/2 cup pasta water; drain.</span>
+        </li>
+        <li>
+          <span>Season chicken with salt and pepper. Sear in olive oil over medium-high until browned and cooked
+            through; remove.</span>
+        </li>
+        <li>
+          <span>Lower heat; add butter and garlic, cook 30 seconds. Stir in lemon zest and juice.</span>
+        </li>
+        <li>
+          <span>Add pasta, chicken, and some reserved water; toss. Off heat, add Parmesan until glossy. Adjust with more
+            water if needed.</span>
+        </li>
+        <li>
+          <span>Finish with parsley, season to taste, and serve immediately.</span>
+        </li>
+      </ol>
+    </section>
 
-      <section>
-        <figure>
-          <img src="/static/chicken-adobo.png" alt="Bowl of lemon chicken pasta with parsley" width="800" height="600" />
-          <!-- <figcaption itemprop="caption">Bright, tangy, and done in 30 minutes.</figcaption> -->
-          <meta itemprop="url" content="/assets/recipes/lemon-chicken-pasta.jpg" />
-        </figure>
-        <div>
-          <ul>
-            <dl>
-              <dt>Prep:</dt>
-              <dd>20 min</dd>
-              <dt>Cook:</dt>
-              <dd>40 min</dd>
-              <dt>Yield:</dt>
-              <dd>4 servings</dd>
-            </dl>
-        </div>
-      </section>
-      <section>
-        <figcaption itemprop="caption">Bright, tangy, and done in 30 minutes.</figcaption>
-        </section>
-      <!-- Recipe content: 1/3 ingredients, 2/3 steps (stack on mobile via CSS) -->
-      <section>
-
-        <aside>
-          <h3>Ingredients</h3>
-          <ul>
-            <li>12 oz pasta (spaghetti or linguine)</li>
-            <li>2 chicken breasts, thinly sliced</li>
-            <li>2 tbsp olive oil</li>
-            <li>3 cloves garlic, minced</li>
-            <li>1 lemon (zest + 3 tbsp juice)</li>
-            <li>1/2 cup grated Parmesan</li>
-            <li>1/2 cup pasta water (reserved)</li>
-            <li>Salt & pepper</li>
-            <li>2 tbsp butter</li>
-            <li>1/4 cup chopped parsley</li>
-          </ul>
-        </aside>
-      </section>
-        <section>
-          <h3>Steps</h3>
-          <ol>
-            <li>
-              <span>Cook pasta in salted water until al dente. Reserve 1/2 cup pasta water; drain.</span>
-            </li>
-            <li>
-              <span>Season chicken with salt and pepper. Sear in olive oil over medium-high until browned and cooked through; remove.</span>
-            </li>
-            <li>
-              <span>Lower heat; add butter and garlic, cook 30 seconds. Stir in lemon zest and juice.</span>
-            </li>
-            <li>
-              <span>Add pasta, chicken, and some reserved water; toss. Off heat, add Parmesan until glossy. Adjust with more water if needed.</span>
-            </li>
-            <li>
-              <span>Finish with parsley, season to taste, and serve immediately.</span>
-            </li>
-          </ol>
-        </section>
-
-    </article>
-  </main>
-
+  </article>
+</main>
