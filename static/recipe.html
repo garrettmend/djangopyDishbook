@@ -16,41 +16,45 @@
 
   <h1><a href="index.html">Dishbook</a></h1>
   <nav>
+    <section class="main-header">
     <span>Jane Doe</span>
     <a href="profile.html">View Profile</a>
+    </section>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="recipe.html">My Cookbook</a></li>
     </ul>
     <form role="search" action="search.html" method="get">
-      <label for="q"></label>
+      <label class="visually-hidden" for="q"></label>
       <input name="q" type="search" placeholder="Search recipes…" />
-      <button type="submit">Search</button>
+      <button class="visually-hidden" type="submit">Search</button>
     </form>
   </nav>
 
 </header>
 
 <!-- Main Content: Recipe Page -->
-<main tabindex="-1">
+<main class="background" tabindex="-1">
   <article>
 
     <header>
       <b>
         <h2>Chicken Adobe</h2>
       </b>
-      <div>By <a href="login.html" rel="author">Jane Doe</a></div>
+      <div>By <a href="profile.html" rel="author">Jane Doe</a></div>
       <div>Featured in July 2025</div>
+      <div class="tags">
       <ul>
         <li><a href="recipe.html">asian</a></li>
         <li><a href="recipe.html">comfort</a></li>
 
       </ul>
+      </div>
     </header>
 
     <section>
-      <figure>
-        <img src="/static/chicken-adobo.png" alt="Bowl of lemon chicken pasta with parsley" width="800" height="600" />
+      <figure class="recipe-photo">
+        <img src="/static/chicken-adobo.png" alt="Bowl of lemon chicken pasta with parsley" width="1600" height="1200" />
         <!-- <figcaption itemprop="caption">Bright, tangy, and done in 30 minutes.</figcaption> -->
         <meta itemprop="url" content="/assets/recipes/lemon-chicken-pasta.jpg" />
       </figure>

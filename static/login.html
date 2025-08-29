@@ -13,21 +13,29 @@
 <title>Dishbook — Log In</title>
 
 
-<header>
+<!-- Site Header / Nav -->
+<header role="banner">
+
   <h1><a href="index.html">Dishbook</a></h1>
   <nav>
-    <a href="login.html">Sign in</a>
+    <section class="main-header">
+    <span>Jane Doe</span>
+    <a href="profile.html">View Profile</a>
+    </section>
     <ul>
       <li><a href="index.html">Home</a></li>
+      <li><a href="recipe.html">My Cookbook</a></li>
     </ul>
     <form role="search" action="search.html" method="get">
-      <label for="q"></label>
+      <label class="visually-hidden" for="q"></label>
       <input name="q" type="search" placeholder="Search recipes…" />
-      <button type="submit">Search</button>
+      <button class="visually-hidden" type="submit">Search</button>
     </form>
   </nav>
+
 </header>
 
+<section class="background">
 <main class="login">
   <b>
     <h2>Sign in to Dishbook</h2>
@@ -51,3 +59,4 @@
 
   </form>
 </main>
+</section>

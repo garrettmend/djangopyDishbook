@@ -17,102 +17,104 @@
 
   <h1><a href="index.html">Dishbook</a></h1>
   <nav>
-    <span>Jane Doe</span>
-    <a href="profile.html">View Profile</a>
+    <section class="main-header">
+      <span>Jane Doe</span>
+      <a href="profile.html">View Profile</a>
+    </section>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="recipe.html">My Cookbook</a></li>
     </ul>
     <form role="search" action="search.html" method="get">
-      <label for="q"></label>
+      <label class="visually-hidden" for="q"></label>
       <input name="q" type="search" placeholder="Search recipes…" />
-      <button type="submit">Search</button>
+      <button class="visually-hidden" type="submit">Search</button>
     </form>
   </nav>
 
 </header>
 
-<main>
+<main class="background">
   <!-- Search controls -->
-  <section>
+  <div class="tags">
+    <section>
 
-    <b>
-      <h2>Search recipes</h2>
-    </b>
-    <form>
-      <input name="q" required placeholder="Try: chicken, cinnamon rolls, #quick, time:&lt;30" />
-      <button>Search</button>
+      <b>
+        <h2>Search recipes</h2>
+      </b>
+      <form>
+        <input name="q" required placeholder="Try: chicken, cinnamon rolls, #quick, time:&lt;30" />
+        <button class="visually-hidden"> Search</button>
 
-    </form>
+      </form>
 
-  </section>
+    </section>
 
-  <!-- Results summary + count -->
-  <section>
+    <!-- Results summary + count -->
+    <section>
 
-    <!-- Cards grid (3-up on desktop) -->
-    <ul>
-      <li>
-        <article>
-          <a>
+      <!-- Cards grid (3-up on desktop) -->
+      <section class="recipe-search">
+        <ul>
 
-
-            <h3>Vietanamese Pho</h3>
-            <ul>
-              <li><a href="recipe.html">comfort</a></li>
-              <li><a href="recipe.html">asian</a></li>
-            </ul>
-
-          </a>
-        </article>
-      </li>
-
-      <li>
-        <article>
-          <a>
-            <figure>
-              <img src="/static/chicken-adobo.png" alt="Cheesy chicken broccoli casserole in a baking dish" width="640"
-                height="480" loading="lazy" />
-            </figure>
-            <div>
-              <h3>Chicken Adobe</h3>
+          <article>
+            <a>
+              <h3><a href="recipe.html">Vietanamese Pho</a></h3>
               <ul>
                 <li><a href="recipe.html">comfort</a></li>
                 <li><a href="recipe.html">asian</a></li>
               </ul>
-            </div>
-          </a>
-        </article>
-      </li>
 
-      <li>
-        <article>
-          <a>
+            </a>
+          </article>
 
-            <h3>Miso Soup</h3>
-            <ul>
-              <li><a href="recipe.html">quick</a></li>
-              <li><a href="recipe.html">asian</a></li>
-            </ul>
-
-          </a>
-        </article>
-      </li>
-
-      <li>
-        <article>
-          <a>
-            <div>
-              <h3>Spicy Miso Soup with Enoki Mushrooms</h3>
+      </section>
+      <article>
+        <a>
+          <figure>
+            <img src="/static/chicken-adobo.png" alt="Cheesy chicken broccoli casserole in a baking dish" width="1600"
+              height="1200" loading="lazy" />
+          </figure>
+          <div>
+            <section class="recipe-profile">
+              <h3><a href="recipe.html">Chicken Adobe</a></h3>
               <ul>
-                <li><a href="recipe.html">spicy</a></li>
+                <li><a href="recipe.html">comfort</a></li>
                 <li><a href="recipe.html">asian</a></li>
               </ul>
-            </div>
-          </a>
-        </article>
-      </li>
+          </div>
+        </a>
+      </article>
+    </section>
 
+    <section class="recipe-profile">
+      <article>
+        <a>
+
+          <h3><a href="recipe.html">Miso Soup</a></h3>
+          <ul>
+            <li><a href="recipe.html">quick</a></li>
+            <li><a href="recipe.html">asian</a></li>
+          </ul>
+
+        </a>
+      </article>
+
+    </section>
+    <section class="recipe-profile">
+      <article>
+        <a>
+          <div>
+            <h3><a href="recipe.html">Spicy Miso Soup with Enoki Mushrooms</a></h3>
+            <ul>
+              <li><a href="recipe.html">spicy</a></li>
+              <li><a href="recipe.html">asian</a></li>
+            </ul>
+          </div>
+        </a>
+      </article>
+    </section>
     </ul>
-  </section>
+    </section>
+  </div>
 </main>
