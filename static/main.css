@@ -34,3 +34,12 @@ h6 {
 b {
     font-weight: bold;
 }
+
+.index-buttons a{
+    color: blue; background-color: papayawhip;
+    border-width: 10px 0 10px 0;
+    border-style: solid;
+    border-color: #01b;
+    border-radius: 10px;
+    padding: .5em 1em
+}
