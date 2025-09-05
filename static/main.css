@@ -9,8 +9,6 @@ html {
     max-width: 700px; 
     justify-content: center;
     flex-direction: column;
-    padding: 0.5rem 0.5rem;
-    gap: 3rem;
     width: 100%;
 }
 
@@ -20,15 +18,13 @@ body{
     justify-content: center;
     flex-direction: column;
     padding: 0.5rem 0.5rem;
-    gap: 3rem;
     width: 100%;
 }
 
 main {
-  margin-top: 3rem;          /* 3rem gap below header */
-  max-width: 700px;          /* text column width */
+  margin-top: 3rem;         
+  max-width: 700px;         
   width: 100%;
-  gap: 300rem;
 }
 
 h1 {
@@ -51,10 +47,14 @@ h6 {
     font-size: 125%;
 }
 
-.description,
 .steps,
 .ingredients {
     line-height: 1.25;
+}
+.description{
+    line-height: 1.25;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .info {
@@ -102,10 +102,10 @@ a:hover {
 .background {
     background-color: #FFF9F1;
     display: inline-block;
-    padding: .5em 1em;
+    padding: 1rem;
     border-radius: 10px;
     border: 1px solid #000000;
-
+    margin-top: 2rem;
 }
 
 ul {
@@ -120,7 +120,6 @@ ul {
 
 .main-header {
   display: block;
-  border-bottom: 4px solid #8b5e34;
 
 }
 
@@ -162,3 +161,33 @@ ul {
 .visually-hidden{
     display: none;
 }
+
+.header-row1,
+.header-row2 {
+  display: flex;
+  justify-content: space-between;  
+}
+
+.header-row1{
+    border-bottom: 4px solid #8b5e34;
+    align-items: flex-end;
+}
+
+.header-links ul{
+    display: flex;
+    gap: 1rem;
+}
+
+.header-search,
+.header-profile{
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.header-search{
+    margin-top: .25rem;
+    gap: .25rem;
+}
+
