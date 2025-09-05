@@ -77,6 +77,12 @@ b {
     border-radius: 10px;
     padding: .5em 1em;
 }
+.index-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
 
 .index-buttons a:hover {
     color: #A8570C;
@@ -212,6 +218,7 @@ ul {
     display: flex;
     gap: 0.5rem;
 }
+
 
 .ingredients ul {
     padding-left: 1rem;
