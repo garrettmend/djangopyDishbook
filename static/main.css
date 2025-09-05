@@ -77,7 +77,8 @@ b {
     border-radius: 10px;
     padding: .5em 1em;
 }
-.index-buttons{
+
+.index-buttons {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -115,6 +116,7 @@ img {
     max-width: 100%;
     height: auto;
     margin-bottom: .5rem;
+    border: 5px solid #ffffff;
 }
 
 .background {
@@ -142,14 +144,7 @@ ul {
 }
 
 .recipe {
-    background-color: #ffffff;
-    display: inline-block;
-    padding: .5em 1em;
-    border-radius: 10px;
-    margin-left: 39px;
-    width: 92%;
-    margin-bottom: -3%;
-    margin-top: -3%;
+  
 }
 
 .recipe-profile {
@@ -219,6 +214,16 @@ ul {
     gap: 0.5rem;
 }
 
+
+.recipe{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    flex: 0 0 calc(33.333% - 0.66rem);  
+    max-width: 100%;
+}
 
 .ingredients ul {
     padding-left: 1rem;
