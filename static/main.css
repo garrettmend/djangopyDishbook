@@ -143,10 +143,6 @@ ul {
 
 }
 
-.recipe {
-  
-}
-
 .recipe-profile {
     background-color: #ffffff;
     display: inline-block;
@@ -212,17 +208,28 @@ ul {
 .tags ul {
     display: flex;
     gap: 0.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
 }
 
+.tags li{
+    text-wrap: nowrap;
+}
+.recipe h3 {
+  margin: 0;
+  word-break: break-word;
+}
 
-.recipe{
+.recipe {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     background-color: #ffffff;
     border-radius: 10px;
-    flex: 0 0 calc(33.333% - 0.66rem);  
+    flex: 0 0 calc(33.333% - 0.66rem);
     max-width: 100%;
+
 }
 
 .ingredients ul {
