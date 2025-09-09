@@ -43,39 +43,41 @@
 
 <main class="background">
   <!-- Search controls -->
+
+
+
+  <b>
+    <h2>Search recipes</h2>
+  </b>
+  <form>
+    <input class="search-bar" name="q" required placeholder="tag:asian" />
+    <button class="visually-hidden"> Search</button>
+
+  </form>
+
+
+
+  <!-- Results summary + count -->
+
   <section class="tags">
-    <section>
+    <ul>
+    <section class="recipe">
 
-      <b>
-        <h2>Search recipes</h2>
-      </b>
-      <form>
-        <input name="q" required placeholder="Try: chicken, cinnamon rolls, #quick, time:&lt;30" />
-        <button class="visually-hidden"> Search</button>
 
-      </form>
+        <article>
+          <a>
+            <h3><a href="recipe.html">Vietanamese Pho</a></h3>
+            <ul>
+              <li><a href="recipe.html">comfort</a></li>
+              <li><a href="recipe.html">asian</a></li>
+            </ul>
+
+          </a>
+        </article>
 
     </section>
 
-    <!-- Results summary + count -->
-    <section>
-
-      <!-- Cards grid (3-up on desktop) -->
-      <div class="recipe-search">
-        <ul>
-
-          <article>
-            <a>
-              <h3><a href="recipe.html">Vietanamese Pho</a></h3>
-              <ul>
-                <li><a href="recipe.html">comfort</a></li>
-                <li><a href="recipe.html">asian</a></li>
-              </ul>
-
-            </a>
-          </article>
-
-        </div>
+    <section class="recipe">
       <article>
         <a>
           <figure>
@@ -83,18 +85,18 @@
               height="1200" loading="lazy" />
           </figure>
           <div>
-            <div class="recipe-profile">
-              <h3><a href="recipe.html">Chicken Adobe</a></h3>
-              <ul>
-                <li><a href="recipe.html">comfort</a></li>
-                <li><a href="recipe.html">asian</a></li>
-              </ul>
-          </div>
+
+            <h3><a href="recipe.html">Chicken Adobe</a></h3>
+            <ul>
+              <li><a href="recipe.html">comfort</a></li>
+              <li><a href="recipe.html">asian</a></li>
+            </ul>
+
         </a>
       </article>
-    </div>
+    </section>
 
-    <div class="recipe-profile">
+    <section class="recipe">
       <article>
         <a>
 
@@ -107,8 +109,9 @@
         </a>
       </article>
 
-    </div>
-    <div class="recipe-profile">
+    </section>
+
+    <div class="recipe">
       <article>
         <a>
           <div>
@@ -122,6 +125,5 @@
       </article>
     </div>
     </ul>
-    </section>
   </section>
 </main>

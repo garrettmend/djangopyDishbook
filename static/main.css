@@ -213,12 +213,13 @@ ul {
 
 }
 
-.tags li{
+.tags li {
     text-wrap: nowrap;
 }
+
 .recipe h3 {
-  margin: 0;
-  word-break: break-word;
+    margin: 0;
+    word-break: break-word;
 }
 
 .recipe {
@@ -229,6 +230,29 @@ ul {
     border-radius: 10px;
     flex: 0 0 calc(33.333% - 0.66rem);
     max-width: 100%;
+
+}
+
+.search-bar {
+    width: 100%;
+    display: flex;
+    flex: 0 0 calc(100%);
+    padding: 0.25rem;
+}
+
+.profile-header{
+    display: flex;
+    flex: 1 1 calc(50%);
+    width: 100%;
+    justify-content: flex-end;
+}
+.profile-header span{
+    display: flex;
+    width: 100%;
+}
+.profile-header img{
+    width: 5rem;
+    height: 5rem;
 
 }
 
