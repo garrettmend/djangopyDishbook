@@ -4,6 +4,38 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 500px) {
+
+    body {
+        padding: 0;
+    }
+
+    main {
+        margin-top: 1.5rem;
+        max-width: 100%;
+    }
+
+    .background {
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .main-header {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .header-row1 {
+        width: 100%;
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        border-bottom: 4px solid #8b5e34;
+    }
+}
+
 html {
     display: flex;
     font-size: 18px;
@@ -49,7 +81,56 @@ h6 {
 
 .login {
     font-size: 125%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
+
+.login label,
+.login input {
+
+    align-items: baseline;
+}
+
+.login label {
+    width: 20%;
+    text-align: left;
+    display: block;
+}
+
+.login input {
+    width: 80%;
+    padding: 0.25rem;
+    text-align: right;
+
+}
+
+.login button {
+    display: block;
+    width: 50%;
+    min-width: 200px;
+    margin: 1rem auto 0;
+    padding: 0.5rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+
+    .login label,
+    .login input {
+        display: block;
+        width: 100%; 
+        text-align: left; 
+        margin: 0;  
+        align-items: baseline; 
+    }
+
+    .login {
+        gap: 0;
+    }
+}
+
 
 .steps,
 .ingredients {
@@ -222,6 +303,40 @@ ul {
     word-break: break-word;
 }
 
+.recipe-div2,
+.recipe-div1 {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.recipe-photo,
+.ingredients {
+    flex: 0 0 calc(33.333% - 0.66rem);
+}
+
+.description,
+.steps {
+    flex: 0 0 calc(66.66% - 0.66rem);
+}
+
+@media (max-width: 500px) {
+
+    .recipe-div2,
+    .recipe-div1 {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .recipe-photo,
+    .ingredients,
+    .description,
+    .steps {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
+
 .recipe {
     display: flex;
     flex-wrap: wrap;
@@ -233,6 +348,18 @@ ul {
 
 }
 
+@media (max-width: 600px) {
+    .recipe {
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+}
+
+@media (max-width: 400px) {
+    .recipe {
+        flex: 0 0 100%;
+    }
+}
+
 .search-bar {
     width: 100%;
     display: flex;
@@ -240,17 +367,19 @@ ul {
     padding: 0.25rem;
 }
 
-.profile-header{
+.profile-header {
     display: flex;
     flex: 1 1 calc(50%);
     width: 100%;
     justify-content: flex-end;
 }
-.profile-header span{
+
+.profile-header span {
     display: flex;
     width: 100%;
 }
-.profile-header img{
+
+.profile-header img {
     width: 5rem;
     height: 5rem;
 
