@@ -13,33 +13,8 @@
 <link rel="stylesheet" href="/assets/styles.css" />
 
 <!-- Site Header / Nav -->
-<section class="main-header">
-  <header role="banner">
-    <div class="header-row1">
-      <h1><a href="index.html">Dishbook</a></h1>
-      <nav>
-        <div class="header-profile">
-          <span>Jane Doe</span>
-          <a href="profile.html">View Profile</a>
-        </div>
-    </div>
-    <div class="header-row2">
-      <div class="header-links">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="recipe.html">My Cookbook</a></li>
-        </ul>
-      </div>
-      <form class="header-search" role="search" action="search.html" method="get">
-        <label class="visually-hidden" for="q"></label>
-        <input name="q" type="search" placeholder="Search recipes…" />
-        <button class="header-button" type="submit">Search</button>
-      </form>
-    </div>
-    </nav>
+{% include "header.html" with page_title="Search" %}
 
-  </header>
-</section>
 
 <main class="background">
   <!-- Search controls -->
@@ -59,71 +34,5 @@
 
   <!-- Results summary + count -->
 
-  <section class="tags">
-    <ul>
-    <section class="recipe">
-
-
-        <article>
-          <a>
-            <h3><a href="recipe.html">Vietanamese Pho</a></h3>
-            <ul>
-              <li><a href="recipe.html">comfort</a></li>
-              <li><a href="recipe.html">asian</a></li>
-            </ul>
-
-          </a>
-        </article>
-
-    </section>
-
-    <section class="recipe">
-      <article>
-        <a>
-          <figure>
-            <img src="/static/chicken-adobo.png" alt="Cheesy chicken broccoli casserole in a baking dish" width="1600"
-              height="1200" loading="lazy" />
-          </figure>
-          <div>
-
-            <h3><a href="recipe.html">Chicken Adobe</a></h3>
-            <ul>
-              <li><a href="recipe.html">comfort</a></li>
-              <li><a href="recipe.html">asian</a></li>
-            </ul>
-
-        </a>
-      </article>
-    </section>
-
-    <section class="recipe">
-      <article>
-        <a>
-
-          <h3><a href="recipe.html">Miso Soup</a></h3>
-          <ul>
-            <li><a href="recipe.html">quick</a></li>
-            <li><a href="recipe.html">asian</a></li>
-          </ul>
-
-        </a>
-      </article>
-
-    </section>
-
-    <div class="recipe">
-      <article>
-        <a>
-          <div>
-            <h3><a href="recipe.html">Spicy Miso Soup with Enoki Mushrooms</a></h3>
-            <ul>
-              <li><a href="recipe.html">spicy</a></li>
-              <li><a href="recipe.html">asian</a></li>
-            </ul>
-          </div>
-        </a>
-      </article>
-    </div>
-    </ul>
-  </section>
+  {% include "cards.html" %}
 </main>

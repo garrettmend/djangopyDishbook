@@ -200,6 +200,8 @@ img {
     border: 5px solid #ffffff;
 }
 
+
+
 .background {
     background-color: #FFF9F1;
     display: inline-block;
@@ -411,3 +413,4 @@ ul {
     flex: 0 0 calc(75% - 0.25rem);
 
 }
+

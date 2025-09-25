@@ -8,38 +8,13 @@
 <!doctype html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dishbook — Home</title>
+<title>{{ page_title }}</title>
 <!-- Skeleton only. Wire your template + CSS later. -->
 <link rel="stylesheet" href="/assets/styles.css" />
 
 <!-- Site Header / Nav -->
-<section class="main-header">
-  <header role="banner">
-    <div class="header-row1">
-      <h1><a href="index.html">Dishbook</a></h1>
-      <nav>
-        <div class="header-profile">
-          <span>Jane Doe</span>
-          <a href="profile.html">View Profile</a>
-        </div>
-    </div>
-    <div class="header-row2">
-      <div class="header-links">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="recipe.html">My Cookbook</a></li>
-        </ul>
-      </div>
-      <form class="header-search" role="search" action="search.html" method="get">
-        <label class="visually-hidden" for="q"></label>
-        <input name="q" type="search" placeholder="Search recipes…" />
-        <button class="header-button" type="submit">Search</button>
-      </form>
-    </div>
-    </nav>
+{% include "header.html" with page_title="Welcome" %}
 
-  </header>
-</section>
 
 <main class="background">
   <!-- Hero / Welcome -->
@@ -69,64 +44,5 @@
   <h2>Featured recipes</h2>
   <p>Hand-picked comfort dishes from the community.</p>
 
-  <section class="tags">
-    <ul>
-      <section class="recipe">
-        <article>
-          <a href="recipe.html">
-            <figure>
-              <img src="/static/funeral-potatoes.png" alt="Golden baked funeral potatoes in a casserole dish"
-                width="1600" height="1200" loading="lazy" />
-            </figure>
-
-            <h3>Funeral Potatoes with Parmesan</h3>
-
-            <ul>
-              <li><a href="recipe.html">comfort</a></li>
-              <li><a href="recipe.html">holiday</a></li>
-              <li><a href="recipe.html">utah</a></li>
-            </ul>
-      </section>
-      </a>
-      </article>
-
-
-      <section class="recipe">
-        <article>
-          <a href="recipe.html">
-            <figure>
-              <img src="/static/chicken-adobo.png" alt="Bowl of lemon chicken pasta with parsley" width="1600"
-                height="1200" loading="lazy" />
-            </figure>
-
-            <h3>Chicken Adobe</h3>
-            <ul>
-              <li><a href="recipe.html">asian</a></li>
-              <li><a href="recipe.html">comfort</a></li>
-            </ul>
-      </section>
-      </a>
-      </article>
-
-
-      <section class="recipe">
-        <article>
-          <a href="recipe.html">
-            <figure>
-              <img src="/static/carne-asada.png" alt="Hearty bowl of beef and bean chili topped with sour cream"
-                width="1600" height="1200" loading="lazy" />
-            </figure>
-            <section class="recipe">
-              <h3>Carne Asada Tacos</h3>
-              <ul>
-                <li><a href="recipe.html">street-food</a></li>
-                <li><a href="recipe.html">spicy</a></li>
-                <li><a href="recipe.html">latino</a></li>
-              </ul>
-            </section>
-          </a>
-        </article>
-      </section>
-    </ul>
-  </section>
+{% include "cards.html" %}
 </main>

@@ -1,0 +1,50 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css' %}">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap"
+  rel="stylesheet">
+<link rel="stylesheet" href="static/main.css">
+
+<!doctype html>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ page_title }}</title>
+<link rel="stylesheet" href="/assets/styles.css" />
+
+
+  <!-- Results summary + count -->
+
+<section class="tags">
+  <ul>
+    {% for recipe in recipes %}
+    <section class="recipe">
+      <article>
+        <a href="/recipe/{{ recipe.id }}">
+          {% if recipe.photo %}
+          <figure>
+            <img src="/recipe/{{ recipe.id }}/photo"
+                 alt="Photo of {{ recipe.title }}"
+                 loading="lazy" />
+          </figure>
+          {% endif %}
+          <div>
+            <h3><a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a></h3>
+            <ul>
+              {% for tag in recipe.tags.all %}
+              <li><a href="/s">{{ tag.name }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </a>
+      </article>
+    </section>
+    {% endfor %}
+  </ul>
+</section>
+
