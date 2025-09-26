@@ -1,45 +1,35 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'main.css' %}">
-<link rel="stylesheet" href="{% static 'styles.css' %}">
+<link rel="stylesheet" href="{% static 'main.css' %}" />
+<link rel="stylesheet" href="{% static 'styles.css' %}" />
 
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="main.css" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap"
-  rel="stylesheet">
-<link rel="stylesheet" href="main.css">
-
-<!doctype html>
+<!DOCTYPE html>
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Dishbook — Search</title>
+<title>{{ page_title }}</title>
 <link rel="stylesheet" href="/assets/styles.css" />
 
 <!-- Site Header / Nav -->
-{% include "header.html" with page_title=author.get_full_name %}
+{% include 'header.html' with page_title=author.get_full_name %}
 
 <main class="background">
   <section class="profile-info">
-    <b>
-      <h2>
-        Ben Braiser
-      </h2>
-    </b>
+    <b><h2>{{ author.get_full_name }}</h2></b>
     <div class="profile-header">
-    <span>Joined 1 week, 1 day ago Author of 7 recipes</span>
-    <figure>
-      <img src="/static/ben-braiser.png" alt="Ben Braiser" width="200" height="200" loading="lazy" />
-    </figure>
+      <span>Joined {{ author.date_joined|timesince }} ago Author of {{ author.recipes.all|length }} recipe{{ author.recipes.all|length|pluralize }}</span>
+      <figure>
+        {% if author.profile.photo %}
+          <img src="/profile/{{ author.username }}/photo" alt="{{ author.get_full_name }}'s profile photo" width="200" height="200" loading="lazy" />
+        {% endif %}
+      </figure>
     </div>
-    <span>I cook the kind of food that feels like home, and wander the world from my stove.
-      My recipes are weeknight-friendly, written with clear steps, sensible substitutions,
-      and the occasional gram weight when it helps. I love cast iron, pantry staples, and
-      dishes that scale for friends and neighbors. If you try something, tell me what you
-      changed—variation is the point.</span>
-
+    <span>{{ author.profile.bio|urlize|linebreaks }}</span>
   </section>
 
-{% include "cards.html" %}
+  {% include 'cards.html' %}
 </main>

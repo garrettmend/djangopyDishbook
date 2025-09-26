@@ -8,7 +8,8 @@ def index(request):
     return render(request, "index.html", {"recipes":  recipes})
 
 def recipe(request, recipe_id):
-    return render(request, "recipe.html", {"recipe_id": recipe_id})
+    recipe = get_object_or_404(models.Recipe, id=recipe_id)
+    return render(request, "recipe.html", {"recipe_id": recipe_id, "recipe": recipe, "page_title": recipe.title})
 
 def search(request):
     recipes = models.Recipe.objects.all()

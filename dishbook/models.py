@@ -39,6 +39,8 @@ class Recipe(models.Model):
         'Tag',
         blank=True
     )
+    def total_time(self):
+        return self.prep_time_minutes+self.cook_time_minutes
 
 class Step(models.Model):
     recipe = models.ForeignKey('Recipe', on_delete=models.SET_NULL, null=True)
