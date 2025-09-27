@@ -1,3 +1,7 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css' %}" />
+<link rel="stylesheet" href="{% static 'styles.css' %}" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap" rel="stylesheet" />
@@ -19,18 +23,26 @@
       <b><h2>{{ recipe.title }}</h2></b>
       <div class="recipe-meta">
         <div>
-          By <a href="profile.html" rel="author">Jane Doe</a>
+          <a href="{% url 'profile' recipe.author.username %}" rel="author">By {{ recipe.author.get_full_name }}</a>
         </div>
-        <div>Featured in July 2025</div>
+        {% if recipe.copied_from %}
+          <div>
+            Based on <a href="{% url 'recipe' recipe.copied_from.id %}">{{ recipe.copied_from.author.get_full_name }}'s {{ recipe.copied_from.title }}</a>
+          </div>
+        {% endif %}
+        {% if variations_count %}
+          <div>
+            <a href="{% url 'search' %}?q=copied_from:{{ recipe.id }}">{{ variations_count }} variation{{ variations_count|pluralize }}</a>
+          </div>
+        {% endif %}
+        {% if recipe.featured_on %}
+          <div>Featured on {{ recipe.featured_on|date:'F Y' }}</div>
+        {% endif %}
       </div>
       <div class="tags">
-        <ul>
-          {% for tag in recipe.tags.all %}
-            <li>
-              <a href="/s">{{ tag.name|urlize|linebreaks }}</a>
-            </li>
-          {% endfor %}
-        </ul>
+        {% for tag in recipe.sorted_tags %}
+          <a href="/s">{{ tag.name|urlize|linebreaks }}</a>
+        {% endfor %}
       </div>
     </header>
 
@@ -63,37 +75,29 @@
         <aside class="ingredients">
           <h3>Ingredients</h3>
           <ul>
-            <li>12 oz pasta (spaghetti or linguine)</li>
-            <li>2 chicken breasts, thinly sliced</li>
-            <li>2 tbsp olive oil</li>
-            <li>3 cloves garlic, minced</li>
-            <li>1 lemon (zest + 3 tbsp juice)</li>
-            <li>1/2 cup grated Parmesan</li>
-            <li>1/2 cup pasta water (reserved)</li>
-            <li>Salt & pepper</li>
-            <li>2 tbsp butter</li>
-            <li>1/4 cup chopped parsley</li>
+            {% for ingredient, amounts in ingr.items %}
+              <li>
+                {% for amount, unit in amounts %}
+                  {{ amount|floatformat:'-2' }}
+                  {% if unit != 'ct' %}
+                    {{ unit }}
+                  {% endif %}
+                  {% if not forloop.last %} and {% endif %}
+                {% endfor %}
+                {{ ingredient }}
+              </li>
+            {% endfor %}
           </ul>
         </aside>
       </section>
       <section class="steps">
         <h3>Steps</h3>
         <ol>
-          <li>
-            <span>Cook pasta in salted water until al dente. Reserve 1/2 cup pasta water; drain.</span>
-          </li>
-          <li>
-            <span>Season chicken with salt and pepper. Sear in olive oil over medium-high until browned and cooked through; remove.</span>
-          </li>
-          <li>
-            <span>Lower heat; add butter and garlic, cook 30 seconds. Stir in lemon zest and juice.</span>
-          </li>
-          <li>
-            <span>Add pasta, chicken, and some reserved water; toss. Off heat, add Parmesan until glossy. Adjust with more water if needed.</span>
-          </li>
-          <li>
-            <span>Finish with parsley, season to taste, and serve immediately.</span>
-          </li>
+          {% for step in recipe.steps.all|dictsort:'order' %}
+            <li>
+              <span>{{ step.description|linebreaks }}</span>
+            </li>
+          {% endfor %}
         </ol>
       </section>
     </div>

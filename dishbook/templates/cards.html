@@ -14,7 +14,6 @@
 <title>{{ page_title }}</title>
 <link rel="stylesheet" href="/assets/styles.css" />
 
-<!-- Results summary + count -->
 
 <section class="tags">
   <ul>
@@ -30,7 +29,7 @@
             <div>
               <h3><a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a></h3>
               <ul>
-                {% for tag in recipe.tags.all %}
+                {% for tag in recipe.sorted_tags %}
                   <li>
                     <a href="/s">{{ tag.name|urlize|linebreaks }}</a>
                   </li>

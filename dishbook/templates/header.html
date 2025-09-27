@@ -1,44 +1,41 @@
+{% load static %}
+
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap"
-  rel="stylesheet">
-<link rel="stylesheet" href="main.css">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playwrite+US+Trad:wght@100..400&display=swap" rel="stylesheet">
 
-<!doctype html>
-
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>{{ page_title }}</title>
-<link rel="stylesheet" href="/assets/styles.css" />
-
-
+<!-- CSS -->
+<link rel="stylesheet" href="{% static 'main.css' %}">
+<link rel="stylesheet" href="{% static 'styles.css' %}">
 
 <!-- Site Header / Nav -->
-<section class="main-header">
-  <header role="banner">
-    <div class="header-row1">
-      <h1><a href="index.html">Dishbook</a></h1>
-      <nav>
-        <div class="header-profile">
-          <span>Jane Doe</span>
-          <a href="profile.html">View Profile</a>
-        </div>
+<header class="main-header" role="banner">
+  <div class="header-row1">
+    <h1><a href="{% url 'index' %}">Dishbook</a></h1>
+    <div class="header-profile">
+      {% if user.is_authenticated %}
+        <span>{{ user.get_full_name }}</span>
+        <a href="{% url 'profile' user.username %}">View Profile</a>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a>
+      {% endif %}
     </div>
-    <div class="header-row2">
-      <div class="header-links">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="recipe.html">My Cookbook</a></li>
-        </ul>
-      </div>
-      <form class="header-search" role="search" action="search.html" method="get">
-        <label class="visually-hidden" for="q"></label>
-        <input name="q" type="search" placeholder="Search recipes…" />
-        <button class="header-button" type="submit">Search</button>
-      </form>
-    </div>
-    </nav>
+  </div>
 
-  </header>
-</section>
+  <div class="header-row2">
+    <div class="header-links">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <!-- No 'my_cookbook' URL defined, so we can just link to index or recipe list -->
+        <li><a href="{% url 'index' %}">My Cookbook</a></li>
+      </ul>
+    </div>
+
+    <form class="header-search" role="search" action="{% url 'search' %}" method="get">
+      <label class="visually-hidden" for="q">Search recipes</label>
+      <input id="q" name="q" type="search" placeholder="Search recipes…" />
+      <button class="header-button" type="submit">Search</button>
+    </form>
+  </div>
+</header>

@@ -20,9 +20,9 @@ from dishbook import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.index),
-    path("profile/<str:username>", views.profile),
-    path("recipe/<int:recipe_id>", views.recipe),
-    path("s", views.search),
-    path("login/", views.signin),
+    path("", views.index, name="index"),
+    path("profile/<str:username>", views.profile, name="profile"),  
+    path("recipe/<int:recipe_id>", views.recipe, name="recipe"), 
+    path("s", views.search, name="search"),
+    path("login/", views.signin, name="login"),
 ]

@@ -41,16 +41,19 @@ class Recipe(models.Model):
     )
     def total_time(self):
         return self.prep_time_minutes+self.cook_time_minutes
+    
+    def sorted_tags(self):
+        return self.tags.all().order_by('name')
 
 class Step(models.Model):
-    recipe = models.ForeignKey('Recipe', on_delete=models.SET_NULL, null=True)
+    recipe = models.ForeignKey('Recipe', on_delete=models.SET_NULL, null=True, related_name='steps')
     
     order = models.IntegerField()
     
     description = models.TextField()
 
 class Ingredient(models.Model):
-    step = models.ForeignKey('Step', on_delete=models.SET_NULL, null=True)
+    step = models.ForeignKey('Step', on_delete=models.SET_NULL, null=True, related_name='ingredients')
     
     amount = models.FloatField()
     
