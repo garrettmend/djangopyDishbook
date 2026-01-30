@@ -43,8 +43,23 @@ def recipe(request, recipe_id):
     return render(request, "recipe.html", {"recipe_id": recipe_id, "recipe": recipe, "page_title": recipe.title, "variations_count": variations_count, "ingr":ingr})
 
 def search(request):
+    q = request.GET.get('q', '').strip()
     recipes = models.Recipe.objects.all()
-    return render(request, "search.html", {"recipes":recipes})
+    if q:
+        # tag search: tag:name
+        if q.lower().startswith('tag:'):
+            tag = q.split(':', 1)[1].strip()
+            recipes = models.Recipe.objects.filter(tags__name__iexact=tag).distinct()
+        elif q.lower().startswith('author:'):
+            author = q.split(':', 1)[1].strip()
+            recipes = models.Recipe.objects.filter(author__username__iexact=author)
+        else:
+            recipes = models.Recipe.objects.filter(
+                models.Q(title__icontains=q) |
+                models.Q(description__icontains=q) |
+                models.Q(tags__name__icontains=q)
+            ).distinct()
+    return render(request, "search.html", {"recipes":recipes, "q": q})
 
 def profile(request, username):
     author = get_object_or_404(User, username=username)

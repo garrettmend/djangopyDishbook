@@ -25,7 +25,7 @@
     <h2>Search recipes</h2>
   </b>
   <form>
-    <input class="search-bar" name="q" required placeholder="tag:asian" />
+    <input class="search-bar" name="q" value="{{ q }}" placeholder="tag:asian" />
     <button class="visually-hidden"> Search</button>
 
   </form>
@@ -33,6 +33,16 @@
 
 
   <!-- Results summary + count -->
+  <p>
+    {% if q %}
+      Showing <strong>{{ recipes|length }}</strong> result(s) for "<em>{{ q }}</em>"
+    {% else %}
+      Showing <strong>{{ recipes|length }}</strong> recipe(s)
+    {% endif %}
+  </p>
+  {% if recipes|length == 0 %}
+    <p><em>No recipes found.</em></p>
+  {% endif %}
 
   {% include "cards.html" %}
 </main>
