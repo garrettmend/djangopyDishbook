@@ -21,7 +21,9 @@ from dishbook import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.index, name="index"),
+    path("profile/<str:username>/photo", views.profile_photo, name="profile_photo"),
     path("profile/<str:username>", views.profile, name="profile"),  
+    path("recipe/<int:recipe_id>/photo", views.recipe_photo, name="recipe_photo"),
     path("recipe/<int:recipe_id>", views.recipe, name="recipe"), 
     path("s", views.search, name="search"),
     path("login/", views.signin, name="login"),

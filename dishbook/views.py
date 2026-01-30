@@ -68,3 +68,40 @@ def profile(request, username):
 
 def signin(request):
     return render(request, "signin.html", {})
+
+from django.http import FileResponse, Http404
+import mimetypes
+from django.conf import settings
+
+
+def recipe_photo(request, recipe_id):
+    recipe = get_object_or_404(models.Recipe, id=recipe_id)
+    if not recipe.photo:
+        # Serve default recipe image from static
+        static_path = settings.BASE_DIR / 'static' / 'recipe.png'
+        if static_path.exists():
+            return FileResponse(open(static_path, 'rb'), content_type='image/png')
+        raise Http404("No photo")
+    try:
+        recipe.photo.open('rb')
+        content_type = mimetypes.guess_type(recipe.photo.name)[0] or 'application/octet-stream'
+        return FileResponse(recipe.photo, content_type=content_type)
+    except Exception:
+        raise Http404("Error opening photo")
+
+
+def profile_photo(request, username):
+    user = get_object_or_404(User, username=username)
+    profile = getattr(user, 'profile', None)
+    if profile and profile.photo:
+        try:
+            profile.photo.open('rb')
+            content_type = mimetypes.guess_type(profile.photo.name)[0] or 'application/octet-stream'
+            return FileResponse(profile.photo, content_type=content_type)
+        except Exception:
+            raise Http404("Error opening profile photo")
+    # Fallback to static profile image
+    static_path = settings.BASE_DIR / 'static' / 'profile.png'
+    if static_path.exists():
+        return FileResponse(open(static_path, 'rb'), content_type='image/png')
+    raise Http404("No profile photo")
