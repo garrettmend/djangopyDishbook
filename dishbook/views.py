@@ -66,8 +66,30 @@ def profile(request, username):
     recipes = models.Recipe.objects.filter(author=author)
     return render(request, "profile.html", {"username": username, "author": author, "recipes": recipes})
 
+from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect
+
+
 def signin(request):
-    return render(request, "signin.html", {})
+    if request.method == 'POST':
+        identifier = request.POST.get('email', '').strip()
+        password = request.POST.get('password', '')
+        username = identifier
+        # If user submitted an email, try to resolve to username
+        if '@' in identifier:
+            try:
+                u = User.objects.get(email__iexact=identifier)
+                username = u.username
+            except User.DoesNotExist:
+                # leave username as identifier (authenticate will fail)
+                username = identifier
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            return render(request, 'signin.html', { 'error': 'Invalid username/email or password', 'page_title': 'Sign in' })
+    return render(request, "signin.html", { 'page_title': 'Sign in' })
 
 from django.http import FileResponse, Http404
 import mimetypes
