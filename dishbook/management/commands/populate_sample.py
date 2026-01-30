@@ -5,6 +5,9 @@ from django.utils import timezone
 import random
 import io
 from PIL import Image, ImageDraw, ImageFont
+import os
+from django.conf import settings
+from django.core.files import File
 
 from dishbook.models import Tag, Profile, Recipe, Step, Ingredient
 
@@ -23,6 +26,31 @@ def make_image(text, size=(800, 600), bgcolor=(200, 200, 200)):
     img.save(bio, 'JPEG')
     bio.seek(0)
     return ContentFile(bio.read())
+
+
+def find_existing_images():
+    """Return a list of absolute image file paths found in MEDIA_ROOT and static dirs."""
+    images = []
+    media_root = getattr(settings, 'MEDIA_ROOT', None)
+    if media_root and os.path.isdir(media_root):
+        for fn in os.listdir(media_root):
+            if fn.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                images.append(os.path.join(media_root, fn))
+    # check static dirs
+    sdirs = getattr(settings, 'STATICFILES_DIRS', [])
+    for sd in sdirs:
+        sd_path = sd
+        if isinstance(sd_path, (str,)) and os.path.isdir(sd_path):
+            for fn in os.listdir(sd_path):
+                if fn.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                    images.append(os.path.join(sd_path, fn))
+    # Also check repo 'assets' folder
+    assets_dir = os.path.join(settings.BASE_DIR, 'assets')
+    if os.path.isdir(assets_dir):
+        for fn in os.listdir(assets_dir):
+            if fn.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                images.append(os.path.join(assets_dir, fn))
+    return images
 
 
 class Command(BaseCommand):
@@ -46,6 +74,10 @@ class Command(BaseCommand):
             tags.append(t)
         self.stdout.write(self.style.SUCCESS(f'Created/verified {len(tags)} tags'))
 
+        # Find existing images to use for profiles and recipes
+        existing_images = find_existing_images()
+        random.shuffle(existing_images)
+
         # Create users and profiles
         users = []
         for i in range(1, users_n+1):
@@ -58,9 +90,14 @@ class Command(BaseCommand):
                 u.last_name = 'Sample'
                 u.save()
             profile, _ = Profile.objects.get_or_create(user=u)
-            # Create profile photo
-            img_content = make_image(f'Profile {i}', size=(400,400))
-            profile.photo.save(f'profile_{i}.jpg', img_content, save=True)
+            # Use existing image if available, otherwise generate
+            if existing_images:
+                img_path = existing_images.pop(0)
+                with open(img_path, 'rb') as f:
+                    profile.photo.save(os.path.basename(img_path), File(f), save=True)
+            else:
+                img_content = make_image(f'Profile {i}', size=(400,400))
+                profile.photo.save(f'profile_{i}.jpg', img_content, save=True)
             profile.bio = f'This is sample bio for {username}.'
             profile.save()
             users.append(u)
@@ -78,9 +115,14 @@ class Command(BaseCommand):
                 cook_time_minutes=random.randint(5,90),
                 serves=random.randint(1,8),
             )
-            # photo
-            img_content = make_image(f'Recipe {i}', size=(800,600))
-            recipe.photo.save(f'recipe_{i}.jpg', img_content, save=True)
+            # photo: use existing image if available
+            if existing_images:
+                img_path = existing_images.pop(0)
+                with open(img_path, 'rb') as f:
+                    recipe.photo.save(os.path.basename(img_path), File(f), save=True)
+            else:
+                img_content = make_image(f'Recipe {i}', size=(800,600))
+                recipe.photo.save(f'recipe_{i}.jpg', img_content, save=True)
 
             # tags: random 1-3 tags
             sample_tags = random.sample(tags, k=random.randint(1, min(3, len(tags))))
