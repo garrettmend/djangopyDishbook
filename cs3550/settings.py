@@ -91,8 +91,15 @@ DATABASES = {
 }
 
 # If a DATABASE_URL is provided (e.g., Railway), configure the default DB from it
+DATABASE_URL = (DATABASE_URL or '').strip()
 if DATABASE_URL:
-    DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+    try:
+        DATABASES['default'] = dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+    except Exception as e:
+        raise RuntimeError(f"Invalid DATABASE_URL environment variable: {e}")
+else:
+    # No DATABASE_URL provided; continue using default sqlite or ensure CI/production sets DATABASE_URL
+    pass
 
 # WhiteNoise static files compression/storage for production
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
