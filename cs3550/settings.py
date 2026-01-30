@@ -31,7 +31,18 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-5ld%nxtln9ju9vr2y=j$a
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
-
+# Security settings for production
+# Allow setting CSRF trusted origins via environment (comma-separated, include scheme)
+CSRF_TRUSTED_ORIGINS = [s for s in os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://djangopydishbook-production.up.railway.app').split(',') if s]
+# Respect X-Forwarded-Proto header from proxy/load balancer
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# Use secure cookies in production (when DEBUG=False)
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SAMESITE = os.environ.get('CSRF_COOKIE_SAMESITE', 'Lax')
+SESSION_COOKIE_SAMESITE = os.environ.get('SESSION_COOKIE_SAMESITE', 'Lax')
+# Redirect HTTP->HTTPS in production
+SECURE_SSL_REDIRECT = not DEBUG
 # Use DATABASE_URL if provided by hosting (Railway)
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
