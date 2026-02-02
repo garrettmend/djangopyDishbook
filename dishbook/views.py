@@ -2,6 +2,7 @@ from django.shortcuts import render
 from . import models
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
+from django.db.models import Q
 # Create your views here.
 def index(request):
     recipes = models.Recipe.objects.order_by('-id')[:3]
@@ -55,9 +56,9 @@ def search(request):
             recipes = models.Recipe.objects.filter(author__username__iexact=author)
         else:
             recipes = models.Recipe.objects.filter(
-                models.Q(title__icontains=q) |
-                models.Q(description__icontains=q) |
-                models.Q(tags__name__icontains=q)
+                Q(title__icontains=q) |
+                Q(description__icontains=q) |
+                Q(tags__name__icontains=q)
             ).distinct()
     return render(request, "search.html", {"recipes":recipes, "q": q})
 
