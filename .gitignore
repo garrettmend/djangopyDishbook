@@ -12,6 +12,7 @@ uploads/*
 db.sqlite3
 /staticfiles/
 /staticfiles
+/media/media/
 
 # Distribution / packaging
 .Python
@@ -28,3 +29,4 @@ dist/
 .DS_Store
 autotester
 *~
+/scripts/
